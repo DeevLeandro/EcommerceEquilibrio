@@ -1,2 +1,3 @@
-# EcommerceEquilibrio
-EcommerceEquilibrio
+E-commerce Equilibrio - Um projeto de loja online desenvolvido para oferecer uma plataforma completa de comércio eletrônico. Este repositório inclui uma aplicação front-end em React e integração de back-end para fornecer recursos como navegação intuitiva, carrinho de compras dinâmico, sistema de pagamento seguro com Mercado Pago e uma experiência de usuário fluida.
+
+O E-commerce Equilibrio é voltado para a venda de medicamentos e produtos hospitalares, com um design responsivo e funcionalidades modernas para garantir uma experiência satisfatória aos usuários. A aplicação conta com pesquisa avançada de produtos, carrossel de promoções, seção de produtos em destaque e implementação de funcionalidades de frete e cálculo de pagamento com Pix.
