@@ -42,7 +42,7 @@ export default function Navbar() {
                      </Link>
                   </li>
                   <li>
-                     <Link to="/pagamento"> {/* Ajustar aqui para o caminho correto */}
+                     <Link to="/pagamento">
                         <FontAwesomeIcon icon={faCreditCard} className="fa-icon" /> Pagamento
                      </Link>
                   </li>

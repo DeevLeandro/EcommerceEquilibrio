@@ -34,14 +34,14 @@ export function CartProvider({ children }) {
       let novoCarrinho;
       if (produtoExistente) {
         novoCarrinho = carrinhoAtual.map((item) =>
-          item.id === produto.id ? { ...item, quantidade: item.quantidade + 1 } : item
+          item.id === produto.id ? { ...item, quantidade: Math.min(item.quantidade + 1, produto.estoque) } : item
         );
       } else {
         novoCarrinho = [...carrinhoAtual, { ...produto, quantidade: 1 }];
       }
 
       calcularTotal(novoCarrinho);
-      localStorage.setItem("produtos", JSON.stringify(novoCarrinho)); // Salva o carrinho no localStorage
+      localStorage.setItem("produtos", JSON.stringify(novoCarrinho));
       return novoCarrinho;
     });
   };
@@ -50,7 +50,7 @@ export function CartProvider({ children }) {
     setProdutos((carrinhoAtual) => {
       const novoCarrinho = carrinhoAtual.filter((item) => item.id !== id);
       calcularTotal(novoCarrinho);
-      localStorage.setItem("produtos", JSON.stringify(novoCarrinho)); // Salva o carrinho atualizado
+      localStorage.setItem("produtos", JSON.stringify(novoCarrinho));
       return novoCarrinho;
     });
   };
@@ -58,10 +58,10 @@ export function CartProvider({ children }) {
   const atualizarQuantidade = (id, quantidade) => {
     setProdutos((carrinhoAtual) => {
       const novoCarrinho = carrinhoAtual.map((item) =>
-        item.id === id ? { ...item, quantidade } : item
+        item.id === id ? { ...item, quantidade: Math.min(quantidade, item.estoque) } : item
       );
       calcularTotal(novoCarrinho);
-      localStorage.setItem("produtos", JSON.stringify(novoCarrinho)); // Salva o carrinho atualizado
+      localStorage.setItem("produtos", JSON.stringify(novoCarrinho));
       return novoCarrinho;
     });
   };

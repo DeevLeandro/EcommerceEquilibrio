@@ -51,7 +51,7 @@ export default function Listacarinho() {
         </div>
         {produtos.length > 0 && (
           <>
-            <div className="total-conteiner">
+            <div className="total-container">
               <b>Total:</b> R$ {total.toFixed(2)}
             </div>
             <button className="btn-icon1" onClick={handleFinalizarCompra}>

@@ -8,7 +8,7 @@ export default function Carinhoproduto({ produto, onRemove }) {
   const [quantidade, setQuantidade] = useState(produto.quantidade);
 
   const handleQuantityChange = (e) => {
-    let novaQuantidade = parseInt(e.target.value, 10);
+    let novaQuantidade = parseInt(e.target.value, 10) || 1;
 
     // Garante que a quantidade não ultrapasse o estoque
     if (novaQuantidade > produto.estoque) {
