@@ -40,11 +40,11 @@ export default function Header() {
         <div className="banner-slide">
           <div className="inner-content">
             <div className="left-side">
-              <h2>Encontre os Melhores Produtos!</h2>
+              <h2>Receba seus produtos rapidamente!</h2>
             </div>
             <div className="right-side">
               <img 
-                src="/images/BANNERMOTO2.png" 
+                src="/images/Banner2.png" 
                 alt="Frete Grátis" 
                 className="responsive-img" 
               />
@@ -59,7 +59,7 @@ export default function Header() {
             </div>
             <div className="right-side">
               <img 
-                src="/images/BANNERMOTO3.png" 
+                src="/images/Banner3.png" 
                 alt="Equipamentos para negócios" 
                 className="responsive-img" 
               />

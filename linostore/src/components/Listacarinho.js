@@ -3,27 +3,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoneyBill, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "./CartContext";
 import Carinhoproduto from "./Carinhoproduto";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Listacarinho() {
   const { produtos, total, removerDoCarrinho } = useCart();
   const [isVisible, setIsVisible] = useState(true);
+  const navigate = useNavigate();
 
   // Função para fechar o carrinho
-  const fecharCarrinho = () => {
-    setIsVisible(false);
-  };
+  const fecharCarrinho = () => setIsVisible(false);
 
   const handleFinalizarCompra = () => {
-    const produtosComEstoqueInsuficiente = produtos.filter((produto) => produto.quantidade > produto.estoque);
-    
+    const produtosComEstoqueInsuficiente = produtos.filter(
+      (produto) => produto.quantidade > produto.estoque
+    );
+
     if (produtosComEstoqueInsuficiente.length > 0) {
-      alert("Um ou mais produtos no carrinho Indisponivel.");
+      alert("Um ou mais produtos no carrinho estão indisponíveis.");
       return;
     }
 
-    // Caso contrário, prossegue com a finalização
-    window.location.href = "/pagamento"; // Redireciona para a página de pagamento
+    fecharCarrinho(); // Fecha o carrinho
+    navigate("/pagamento"); // Navega para a página de pagamento
   };
 
   return (
@@ -53,10 +54,10 @@ export default function Listacarinho() {
             <div className="total-conteiner">
               <b>Total:</b> R$ {total.toFixed(2)}
             </div>
-            <Link to="/pagamento" className="btn-icon1" onClick={handleFinalizarCompra}>
+            <button className="btn-icon1" onClick={handleFinalizarCompra}>
               <span>Pagar Agora</span>
               <FontAwesomeIcon icon={faMoneyBill} />
-            </Link>
+            </button>
           </>
         )}
       </aside>

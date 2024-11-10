@@ -31,18 +31,19 @@ export default function Rodape() {
         <div>
           <div className="logo-footer">
           <h1 className="logo">
-           RIAJJY<span>DISTRIBUIDORA</span>
+           Riajjy<span>Distribuidora </span>
             </h1>
             <p>
-            Agradecemos pela confiança em nossa distribuidora de peças para motos.
-            É uma honra contribuir para o sucesso de sua empresa e o desempenho de veículos que levam qualidade e segurança a tantas pessoas. Comprometidos com excelência e inovação, seguimos à disposição para atender suas necessidades e oferecer o melhor suporte.
-            Conte sempre com nossa dedicação e parceria para garantir produtos de alta qualidade e um serviço em que você pode confiar. 
-            Obrigado por fazer parte de nossa jornada!
+            Agradecemos pela confiança em nossa distribuidora, a Riajjy Distribuidora de Equipamentos para Motos.
+            É uma honra fazer parte da sua jornada, contribuindo para o sucesso de sua empresa e para a satisfação de seus clientes que dependem de produtos de qualidade para uma experiência segura e emocionante em cada viagem. 
+            Com um compromisso contínuo com a excelência e inovação, estamos sempre prontos para atender às suas necessidades e oferecer o melhor suporte.
+            Conte conosco como seu parceiro de confiança para garantir produtos de alta qualidade e um atendimento dedicado.
+            Obrigado por fazer parte da nossa trajetória!
             </p>
             </div>
             <hr/>
             <p className="copyright">
-             Copyright 2030 - RIAJJY DISTRIBUIDORA - Todos Direitos Reservados 
+             Copyright 2030 - Riajjy Distribuidora - Todos Direitos Reservados 
             </p>
         </div>
       </div>

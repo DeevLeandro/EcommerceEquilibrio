@@ -1,26 +1,36 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
 
 export function CartProvider({ children }) {
-  const [produtos, setProdutos] = useState([]);
-  const [total, setTotal] = useState(0);
+  const [produtos, setProdutos] = useState(() => {
+    const savedCart = localStorage.getItem("produtos");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+  const [total, setTotal] = useState(() => {
+    const savedTotal = localStorage.getItem("total");
+    return savedTotal ? parseFloat(savedTotal) : 0;
+  });
 
   const calcularTotal = (produtos) => {
     const novoTotal = produtos.reduce(
       (acc, item) => acc + item.preco * item.quantidade,
       0
     );
-    console.log("Novo total calculado:", novoTotal); // Debugging
     setTotal(novoTotal);
+    localStorage.setItem("total", novoTotal); // Salva o total no localStorage
   };
+
+  useEffect(() => {
+    calcularTotal(produtos); // Calcula o total ao montar o componente
+  }, [produtos]);
 
   const adicionarAoCarrinho = (produto) => {
     setProdutos((carrinhoAtual) => {
       const produtoExistente = carrinhoAtual.find((item) => item.id === produto.id);
-      
+
       let novoCarrinho;
       if (produtoExistente) {
         novoCarrinho = carrinhoAtual.map((item) =>
@@ -31,6 +41,7 @@ export function CartProvider({ children }) {
       }
 
       calcularTotal(novoCarrinho);
+      localStorage.setItem("produtos", JSON.stringify(novoCarrinho)); // Salva o carrinho no localStorage
       return novoCarrinho;
     });
   };
@@ -39,6 +50,7 @@ export function CartProvider({ children }) {
     setProdutos((carrinhoAtual) => {
       const novoCarrinho = carrinhoAtual.filter((item) => item.id !== id);
       calcularTotal(novoCarrinho);
+      localStorage.setItem("produtos", JSON.stringify(novoCarrinho)); // Salva o carrinho atualizado
       return novoCarrinho;
     });
   };
@@ -49,6 +61,7 @@ export function CartProvider({ children }) {
         item.id === id ? { ...item, quantidade } : item
       );
       calcularTotal(novoCarrinho);
+      localStorage.setItem("produtos", JSON.stringify(novoCarrinho)); // Salva o carrinho atualizado
       return novoCarrinho;
     });
   };

@@ -27,7 +27,7 @@ export default function Navbar() {
       <div className="nav">
          <div className="inner-content">
             <h1 className="logo">
-            <span>RIAJJY</span>
+            <span>Riajjy</span>
             </h1>
             <nav className={`${showMenu && "show"}`}>
                <ul>
