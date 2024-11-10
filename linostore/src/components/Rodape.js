@@ -25,9 +25,6 @@ export default function Rodape() {
         </a>
         </div>
 
-       
-
-
         <div>
           <div className="logo-footer">
           <h1 className="logo">

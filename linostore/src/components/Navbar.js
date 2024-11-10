@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faHome, faSearch, faShoppingCart, faCreditCard, faEnvelope, faUser, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";  // Aqui estamos importando 'Link' para navegação
 import { usePesquisa } from "./PesquisaContext";
 import Listacarinho from "./Listacarinho";
 import { useCart } from "./CartContext";
@@ -23,6 +23,11 @@ export default function Navbar() {
 
    const quantidadeTotal = produtos.reduce((acc, produto) => acc + produto.quantidade, 0);
 
+   const handleHomeClick = () => {
+      setSearchTerm("");  // Zera o termo de pesquisa quando clicar em "Início"
+      navigate("/");  // Navega para a página inicial
+   };
+
    return (
       <div className="nav">
          <div className="inner-content">
@@ -32,7 +37,7 @@ export default function Navbar() {
             <nav className={`${showMenu && "show"}`}>
                <ul>
                   <li>
-                     <Link to="/">
+                     <Link to="/" onClick={handleHomeClick}>
                         <FontAwesomeIcon icon={faHome} className="fa-icon" /> Inicio
                      </Link>
                   </li>
@@ -52,7 +57,7 @@ export default function Navbar() {
                      </Link>
                   </li>
                   <li>
-                     <Link to="/log">
+                     <Link to="/login">
                         <FontAwesomeIcon icon={faUser} className="fa-icon" /> Conta
                      </Link>
                   </li>
@@ -74,7 +79,7 @@ export default function Navbar() {
                <button 
                   className="Shopping-Cart" 
                   onClick={() => setShowCart(!showCart)}
-                  aria-label={showCart ? "Fechar carrinho" : "Abrir carrinho"}>
+                  aria-label={showCart ? "Fechar carrinho" : "Abrir carrinho"} >
                   <FontAwesomeIcon icon={faShoppingCart} />
                   <div className="produto-Count">
                      {quantidadeTotal > 0 ? quantidadeTotal : null}

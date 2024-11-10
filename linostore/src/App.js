@@ -4,11 +4,13 @@ import Navbar from "./components/Navbar";
 import Rodape from "./components/Rodape";
 import HomePage from "./components/pages/HomePage";
 import Produtopagina from "./components/pages/Produtopagina";
-import Pagamento from "./components/Pagamento"; // Nova importação
+import Pagamento from "./components/Pagamento"; 
+import Login from "./components/Login";  // Importação da página de Login
+import Registro from "./components/Registro"; // Importe o componente de Registro
 import { CartProvider } from "./components/CartContext";
 import { PesquisaProvider, usePesquisa } from "./components/PesquisaContext";
 import axios from "axios";
-import Loading from "./components/Loading"; // Importando o componente de Loading
+import Loading from "./components/Loading"; 
 
 function App() {
   const [produto, setProduto] = useState([]);
@@ -17,7 +19,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   
   return (
-  
     <CartProvider>
       <PesquisaProvider>
         <Router>
@@ -38,7 +39,6 @@ function App() {
         </Router>
       </PesquisaProvider>
     </CartProvider>
-    
   );
 }
 
@@ -92,7 +92,7 @@ function MainContent({ produto, setProduto, erro, setErro, pagina, setPagina, lo
 
   return (
     <main>
-      {loading ? <Loading /> : null} {/* Usando o novo componente de Loading */}
+      {loading ? <Loading /> : null} 
       {erro && <p style={{ color: 'red' }}>{erro}</p>}
       <Routes>
         <Route 
@@ -116,7 +116,9 @@ function MainContent({ produto, setProduto, erro, setErro, pagina, setPagina, lo
               handlePaginaAnterior={handlePaginaAnterior} 
             />} 
         />
-        <Route path="/pagamento" element={<Pagamento />} /> {/* Nova rota para Pagamento */}
+        <Route path="/pagamento" element={<Pagamento />} />
+        <Route path="/login" element={<Login />} /> {/* Rota para a página de login */}
+        <Route path="/registro" element={<Registro />} /> {/* Rota para a página de registro */}
       </Routes> 
     </main>
   );
