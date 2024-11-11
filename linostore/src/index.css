@@ -628,7 +628,7 @@ header .banner-slide .right-side img {
 
 /* Efeito de animação de "saída da tela" */
 .sessao-exclusiva .content .right-side img {
-  max-width: 400px;
+  max-width: 300px;
   border-radius: 10px;
   transition: transform 0.5s ease, box-shadow 0.3s ease;
   transform-origin: center;
@@ -942,10 +942,15 @@ footer .copyright {
   transition: all 0.2s;
 }
 
+
 .btn-icon1:hover {
-  background-color: var(--corpreta);
+  background-color: #005f73; /* Cor de fundo ao passar o mouse */
+  transition: color 0.3s; /* Transição suave na cor */
 }
+
+
 /* Final Produto do Carinho */
+
 
 /* Inicio btn ver mais*/
 
@@ -1210,6 +1215,25 @@ footer .copyright {
 .login input:focus {
   border-color: #1e3c72; /* Cor azul marinho no foco */
   outline: none;
+}
+
+.senha-container {
+  position: relative;
+  width: 100%;
+}
+
+.senha-input {
+  width: 100%;
+  padding-right: 2.5rem; /* Espaço para o ícone */
+}
+
+.mostrar-senha-icone {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
 }
 
 /* Estilo do botão de login */

@@ -6,7 +6,7 @@ export  default function Listacomentario(){
     <div className="comentario">
         <p>"</p>
         <p>
-        "Ótima experiência de compra! A entrega foi rápida, e os medicamentos vieram bem embalados. 
+        "Ótima experiência de compra! A entrega foi rápida, e os Equipamentos vieram bem embalados. 
          Com certeza comprarei de novo!"
         </p>
         <p className="rate">&#9733;&#9733;&#9733;&#9733;&#9733;</p>

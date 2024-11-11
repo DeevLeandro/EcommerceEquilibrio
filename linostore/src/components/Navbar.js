@@ -42,7 +42,7 @@ export default function Navbar() {
                      </Link>
                   </li>
                   <li>
-                     <Link to="/Produto">
+                     <Link to="/Produto" onClick={handleHomeClick}>
                         <FontAwesomeIcon icon={faBoxOpen} className="fa-icon" /> Produtos
                      </Link>
                   </li>
